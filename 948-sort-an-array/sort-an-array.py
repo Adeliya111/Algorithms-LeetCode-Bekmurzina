@@ -1,5 +1,3 @@
-from typing import List
-
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
 
@@ -12,19 +10,19 @@ class Solution:
             right = merge_sort(a[mid:])
 
             i = j = 0
-            result = []
+            res = []
 
             while i < len(left) and j < len(right):
                 if left[i] <= right[j]:
-                    result.append(left[i])
+                    res.append(left[i])
                     i += 1
                 else:
-                    result.append(right[j])
+                    res.append(right[j])
                     j += 1
 
-            result.extend(left[i:]) # добавление элементов в список
-            result.extend(right[j:])
-            return result
+            res.extend(left[i:]) # добавление элементов в список
+            res.extend(right[j:])
+            return res
 
         return merge_sort(nums)
 
