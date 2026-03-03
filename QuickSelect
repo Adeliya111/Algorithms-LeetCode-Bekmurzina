@@ -1,0 +1,33 @@
+import random
+
+def partition(arr, low, high):
+    # Разделение по схеме Ломуто
+    pivot = arr[high]
+    i = low - 1
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+def randomized_partition(arr, low, high):
+    #рандомизированный выбор опорного элемента
+    rand_index = random.randint(low, high)
+    arr[rand_index], arr[high] = arr[high], arr[rand_index]
+    return partition(arr, low, high)
+
+def quick_select(arr, k):
+    #возвращает k-й наименьший элемент
+    def _select(low, high, k):
+        if low == high:
+            return arr[low]
+        pi = randomized_partition(arr, low, high)
+        if k == pi:
+            return arr[pi]
+        elif k < pi:
+            return _select(low, pi - 1, k)
+        else:
+            return _select(pi + 1, high, k)
+
+    return _select(0, len(arr) - 1, k)
