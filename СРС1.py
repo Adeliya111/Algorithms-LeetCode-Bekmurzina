@@ -88,7 +88,7 @@ for dtype, generator in data_types.items():
         results['merge'][dtype].append(t_mer)
         print(f"  n={n}: insertion = {t_ins:.6f} сек, merge = {t_mer:.6f} сек")
 
-#построение графиков (до 101 строки)
+#построение графиков (до 112 строки)
 for dtype in data_types:
     plt.figure(figsize=(8, 5))
     plt.plot(sizes, results['insertion'][dtype], marker='o', label='Insertion Sort')
@@ -99,17 +99,6 @@ for dtype in data_types:
     plt.legend()
     plt.grid(True)
     plt.show()
-
-#для случайных данных (до 112 строки)
-plt.figure(figsize=(8, 5))
-plt.plot(sizes, results['insertion']['random'], marker='o', label='Insertion Sort')
-plt.plot(sizes, results['merge']['random'], marker='s', label='Merge Sort')
-plt.xlabel('Размер массива (n)')
-plt.ylabel('Среднее время выполнения (сек)')
-plt.title('Сравнение на случайных данных')
-plt.legend()
-plt.grid(True)
-plt.show()
 
 #вывод таблиц
 import pandas as pd
