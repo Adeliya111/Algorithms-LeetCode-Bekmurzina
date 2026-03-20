@@ -4,7 +4,7 @@ class Solution:
         for word in strs :
             cnt = [0] * 26 #английские буквы
             for ch in word :
-                cnt[ord(ch) - ord('a')] += 1 #возвращает unicode
+                cnt[ord(ch) - ord('a')] += 1 #ASCII 
             
             key = tuple(cnt)
             hashmap[key].append(word)
