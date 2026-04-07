@@ -14,8 +14,8 @@ class Solution:
             r, c = queue.popleft()
             for dr, dc in directions:
                 nr, nc = r + dr, c + dc
-                # Проверка границ сетки и совпадения с исходным цветом
+                #проверка границ сетки и совпадения с исходным цветом
                 if 0 <= nr < m and 0 <= nc < n and image[nr][nc] == oldColor:
-                    image[nr][nc] = newColor  # Замена цвета перед добавлением в очередь
-                    queue.append((nr, nc))    # Добавление соседа для дальнейшего обхода
+                    image[nr][nc] = newColor  #замена цвета перед добавлением в очередь
+                    queue.append((nr, nc))    #добавление соседа для дальнейшего обхода
         return image
